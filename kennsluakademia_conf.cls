@@ -135,3 +135,27 @@
   
   \color{lightblue} \@conference, \@address{} \@date % Display conference name, location, and date
 }
+
+% Optional callout using the theme colors
+\newcommand{\callout}[2]{%
+  \par\medskip
+  \noindent
+  \begingroup
+  \setlength{\fboxsep}{8pt}%
+  \setlength{\fboxrule}{0.8pt}%
+  \fcolorbox{darkblue}{lightblue}{%
+    \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+      \textbf{\color{darkblue}#1}\par
+      \vspace{0.35em}
+      #2
+    \end{minipage}%
+  }%
+  \endgroup
+  \par\medskip
+}
+
+% Add a hyperlink for DOI
+\AtBeginDocument{%
+  \providecommand{\doi}[1]{\href{https://doi.org/#1}{doi: #1}}%
+  \renewcommand{\doi}[1]{\href{https://doi.org/#1}{doi: #1}}%
+}
