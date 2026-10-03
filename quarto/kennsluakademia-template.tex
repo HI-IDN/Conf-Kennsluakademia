@@ -1,0 +1,88 @@
+% File: quarto/kennsluakademia-template.tex
+% Pandoc/Quarto template that maps article.qmd metadata onto kennsluakademia_conf.cls,
+% so the Quarto PDF matches the hand-written main.tex.
+\documentclass{kennsluakademia_conf}
+
+$if(conference)$
+\conference{$conference$}
+$endif$
+$if(address)$
+\address{$address$}
+$endif$
+$if(date)$
+\date{$date$}
+$endif$
+$if(keywords)$
+\keywords{$for(keywords)$$keywords$$sep$, $endfor$}
+$endif$
+
+\title{$title$}
+
+\author{%
+$for(by-author)$
+$it.name.literal$$if(it.orcid)$\autid{$for(it.affiliations)$$it.number$$sep$,$endfor$}{$it.orcid$}$else$\raisebox{1.2ex}{\small $for(it.affiliations)$$it.number$$sep$,$endfor$}$endif$$sep$,
+$endfor$%
+}
+
+$for(by-affiliation)$
+\affil{$it.number$}{$if(it.department)$$it.department$, $endif$$it.name$}
+$endfor$
+
+% Helpers pandoc's LaTeX writer expects
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setlength{\emergencystretch}{3em}
+$if(graphics)$
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{%
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+\def\fps@figure{htbp}
+\makeatother
+$endif$
+$if(tables)$
+\usepackage{longtable,booktabs,array,calc}
+\newcounter{none}
+$endif$
+$if(strikeout)$
+\usepackage{soul}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\begin{document}
+
+\maketitle
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+$body$
+
+$if(nocite-ids)$
+\nocite{$for(nocite-ids)$$it$$sep$, $endfor$}
+$endif$
+$if(natbib)$
+$if(bibliography)$
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+$endif$
+$endif$
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+\end{document}

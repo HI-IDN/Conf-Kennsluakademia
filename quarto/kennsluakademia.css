@@ -1,0 +1,114 @@
+/* File: quarto/kennsluakademia.css
+   Web version of kennsluakademia_conf.cls, layered on the HÍ theme (haskoli-islands-html). */
+
+:root {
+  --ka-lightblue: #83BDBA;
+  --ka-darkblue: #1C3E64;
+  --ka-lime: #A6CE39;
+}
+
+/* Links in dark blue, as with \hypersetup in the class */
+#quarto-document-content a,
+#quarto-appendix a {
+  color: var(--ka-darkblue);
+}
+
+/* Page header: logo and conference line in light blue */
+.ka-masthead {
+  margin-bottom: 2rem;
+}
+.ka-logo {
+  width: 55mm;
+  max-width: 60%;
+  height: auto;
+  display: block;
+}
+.ka-conference {
+  color: var(--ka-lightblue);
+  margin: .4rem 0 0;
+}
+
+/* \maketitle: centred title block */
+.ka-title-block {
+  margin-bottom: 1.5rem;
+}
+#title-block-header.ka-title-block h1.title {
+  color: var(--ka-darkblue);
+  font-weight: 700;
+  font-size: 2.6rem;
+  text-align: center;
+  margin: 0 0 1.5rem;
+}
+.ka-authors {
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: .4rem;
+}
+.ka-author {
+  white-space: nowrap;
+}
+.ka-author sup {
+  margin-right: .15em;
+}
+#title-block-header a.ka-orcid {
+  color: var(--ka-lime);
+  text-decoration: none;
+}
+.ka-affiliations {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  font-size: .85rem;
+  text-align: center;
+}
+.ka-keywords {
+  font-size: .85rem;
+  font-weight: 700;
+  border-top: 1px solid #E8E8E8;
+  padding-top: 1rem;
+}
+
+/* Sections: Roman numerals and small caps, as in the class */
+#quarto-document-content {
+  counter-reset: ka-section;
+}
+#quarto-document-content section.level1 > h1,
+#quarto-appendix h2.anchored {
+  font-variant: small-caps;
+  font-weight: 400;
+  letter-spacing: .02em;
+  border-bottom: none;
+}
+#quarto-document-content section.level1:not(.unnumbered) > h1::before {
+  counter-increment: ka-section;
+  content: counter(ka-section, upper-roman);
+  margin-right: 1em;
+}
+#quarto-document-content section.level1 {
+  counter-reset: ka-subsection;
+}
+#quarto-document-content section.level2:not(.unnumbered) > h2 {
+  font-variant: small-caps;
+  font-weight: 400;
+}
+#quarto-document-content section.level2:not(.unnumbered) > h2::before {
+  counter-increment: ka-subsection;
+  content: counter(ka-section, upper-roman) "." counter(ka-subsection, upper-alpha);
+  margin-right: 1em;
+}
+
+/* \callout{title}{body} */
+.ka-callout {
+  background: var(--ka-lightblue);
+  border: 1px solid var(--ka-darkblue);
+  padding: .75rem 1rem;
+  margin: 1rem 0;
+}
+.ka-callout-title {
+  color: var(--ka-darkblue);
+  font-weight: 700;
+  margin-bottom: .35rem;
+}
+.ka-callout p:last-child {
+  margin-bottom: 0;
+}

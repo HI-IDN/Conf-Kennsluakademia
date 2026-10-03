@@ -54,6 +54,24 @@ The title is automatically generated when you call `\maketitle` in your document
 ### 6. Example Document
 A minimal example of a `.tex` file using this class is provided in [main.tex](main.tex) and a rendered version is in [main.pdf](main.pdf).
 
+## Quarto version (PDF + web)
+[article.qmd](article.qmd) holds the same content as `main.tex` in Markdown. One command renders both:
+
+```bash
+quarto render article.qmd
+```
+
+- **PDF** (`article.pdf`): goes through `kennsluakademia_conf.cls` via [quarto/kennsluakademia-template.tex](quarto/kennsluakademia-template.tex), so it looks the same as `main.pdf` (pdflatex + natbib/plainnat).
+- **Web** (`article.html`): the HÍ Quarto theme (`_extensions/tungufoss/haskoli-islands`, copied from quarto-hi) plus the conference look: logo and conference line, dark-blue title, ORCID icons, numbered affiliations, keywords, Roman-numeral small-caps sections. See [quarto/title-block.html](quarto/title-block.html) and [quarto/kennsluakademia.css](quarto/kennsluakademia.css). References use APA (`quarto/apa.csl`).
+
+Metadata maps onto the class commands: `title`, `author` (`name`, `orcid`, `affiliations: [ref: ...]`), `affiliations` (`id`, `department`, `name`), `keywords`, `address`, `date`, `conference`. A box in the conference colours (`\callout`) is written as:
+
+```markdown
+::: {.ka-callout title="Fyrirsögn"}
+Texti.
+:::
+```
+
 ## Customization
 You can modify the header, footer, colors, and other layout options by editing the [kennsluakademia_conf.cls](kennsluakademia_conf.cls) file.
 

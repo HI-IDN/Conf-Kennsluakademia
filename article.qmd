@@ -1,0 +1,87 @@
+---
+# File: article.qmd
+# Quarto version of main.tex: renders the same PDF (through kennsluakademia_conf.cls)
+# and a web version in the HÍ look.  Render both with:  quarto render article.qmd
+title: Titill
+conference: Ráðstefna Kennsluakademíu opinberu háskólanna
+address: Veröld Háskóla Íslands
+date: 2026-11-20
+date-format: "D MMMM, YYYY"
+lang: is
+keywords:
+  - Lykilorð 1
+  - lykilorð 2
+  - lykilorð 3
+  - lykilorð 4
+author:
+  - name: Fyrsti höfundur
+    orcid: 0000-0000-0000-0000
+    affiliations:
+      - ref: aff1
+  - name: Annar höfundur
+    orcid: 0000-0000-0000-0000
+    affiliations:
+      - ref: aff1
+  - name: Þriðji höfundur
+    orcid: 0000-0000-0000-0000
+    affiliations:
+      - ref: aff2
+affiliations:
+  - id: aff1
+    department: Deild
+    name: háskóli
+  - id: aff2
+    department: Önnur deild
+    name: háskóli
+bibliography: references.bib
+nocite: |
+  @*
+filters:
+  - quarto/kennsluakademia.lua
+format:
+  pdf:
+    template: quarto/kennsluakademia-template.tex
+    pdf-engine: pdflatex
+    cite-method: natbib
+    biblio-style: plainnat
+  haskoli-islands-html:
+    lang: is
+    toc-title: Efnisyfirlit
+    csl: quarto/apa.csl
+    link-citations: true
+    reference-section-title: Tilvísanir
+    css: quarto/kennsluakademia.css
+    template-partials:
+      - quarto/title-block.html
+    include-in-header:
+      - text: |
+          <link rel="icon" type="image/svg+xml" href="quarto/favicon.svg">
+---
+
+# Inngangur
+
+Inngangur lýsir vandamáli eða áskorun sem höfundur/ar stóðu frammi fyrir í kennslu og markmiði verkefnisins.
+
+Kennsluakademían leggur áherslu á að styðja bæði rannsóknarverkefni og kennsluþróunarverkefni/umbætur á kennslu sem miða að því að efla gæði náms og kennslu. Akademían samþykkir  útdrætti sem byggir á rannsóknum tengdum háskólum, rannsóknarverkefnum á eigin kennslu (SotL), sem og útdrætti sem lýsa umbótum á kennsluaðferðum og kennsluþróun sem miða að því að innleiða nýjar aðferðir, verkfæri eða stefnu til að bæta námsupplifun nemenda og kennslugæði.
+
+Með þessu vill Kennsluakademían skapa vettvang þar sem fram fer umræða um hvoru tveggja fræðilegar rannsóknir á kennslu og hagnýtar kennsluumbætur. Höfundar hvattir til að setja verkefni í fræðilegt samhengi, með því að vísa í rannsóknir á tengdum sambærilegum verkefnum.
+
+# Aðferð
+
+Aðferð lýsir framkvæmd verkefnisins, þeirri aðferð eða inngripi sem var notuð til að leysa vandamálið og hvaða gögnum var safnað til að meta árangur verkefnisins.
+
+# Niðurstöður
+
+Niðurstöður lýsa árangri af verkefninu, t.d. hvaða áhrif hafði verkefnið á náms árangur nemenda og upplifun af náminu.
+
+# Umræður
+
+Í umræðum eru niðurstöður ræddar svo sem hvað hefði mátt betur fara og hvað mögulegu úrbætur væri hægt að gera í framtíðinni. Í umræðum eru niðurstöður jafnfram ræddar út frá rannsóknium annar á viðfangsefninu.
+
+<!--
+Rammi í litum ráðstefnunnar (\callout í LaTeX-klasanum):
+
+::: {.ka-callout title="Fyrirsögn"}
+Texti í rammanum.
+:::
+-->
