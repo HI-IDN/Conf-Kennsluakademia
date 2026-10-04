@@ -36,7 +36,7 @@ jobs:
         run: |
           mkdir -p _site/quarto
           cp -r article.html article_files article.pdf kennsluakademia.png _site/
-          cp quarto/favicon.svg _site/quarto/
+          cp quarto/kennsluakademia.css quarto/favicon.png _site/quarto/
           cp article.html _site/index.html
 
       - name: Upload Pages artifact

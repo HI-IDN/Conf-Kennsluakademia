@@ -52,16 +52,16 @@ First Author\autid{1}{0000-0000-0000-0000}
 The title is automatically generated when you call `\maketitle` in your document, which will print the title, author list, affiliations, and keywords.
 
 ### 6. Example Document
-A minimal example of a `.tex` file using this class is provided in [main.tex](main.tex) and a rendered version is in [main.pdf](main.pdf).
+A minimal example of a `.tex` file using this class is provided in [article.tex](article.tex) and a rendered version is in [article.pdf](article.pdf). Both are generated from [article.qmd](article.qmd) (see below), so edit the `.qmd` rather than the `.tex`; `article.tex` still compiles on its own with pdflatex + bibtex.
 
 ## Quarto version (PDF + web)
-[article.qmd](article.qmd) holds the same content as `main.tex` in Markdown. One command renders both:
+[article.qmd](article.qmd) is the source of the example. One command renders both the PDF and the web version:
 
 ```bash
 quarto render article.qmd
 ```
 
-- **PDF** (`article.pdf`): goes through `kennsluakademia_conf.cls` via [quarto/kennsluakademia-template.tex](quarto/kennsluakademia-template.tex), so it looks the same as `main.pdf` (pdflatex + natbib/plainnat).
+- **PDF** (`article.pdf`, plus the generated `article.tex`): goes through `kennsluakademia_conf.cls` via [quarto/kennsluakademia-template.tex](quarto/kennsluakademia-template.tex) (pdflatex + natbib/plainnat).
 - **Web** (`article.html`): the HÍ Quarto theme (`_extensions/tungufoss/haskoli-islands`, copied from quarto-hi) plus the conference look: logo and conference line, dark-blue title, ORCID icons, numbered affiliations, keywords, Roman-numeral small-caps sections. See [quarto/title-block.html](quarto/title-block.html) and [quarto/kennsluakademia.css](quarto/kennsluakademia.css). References use APA (`quarto/apa.csl`).
 
 Metadata maps onto the class commands: `title`, `author` (`name`, `orcid`, `affiliations: [ref: ...]`), `affiliations` (`id`, `department`, `name`), `keywords`, `address`, `date`, `conference`. A box in the conference colours (`\callout`) is written as:

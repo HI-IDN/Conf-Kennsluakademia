@@ -1,0 +1,128 @@
+% File: quarto/kennsluakademia-template.tex
+% Pandoc/Quarto template that maps article.qmd metadata onto kennsluakademia_conf.cls,
+% so the Quarto PDF matches the hand-written main.tex.
+\documentclass{kennsluakademia_conf}
+
+\conference{Ráðstefna Kennsluakademíu opinberu háskólanna}
+\address{Veröld Háskóla Íslands}
+\date{20 nóvember, 2026}
+\keywords{Lykilorð 1, lykilorð 2, lykilorð 3, lykilorð 4}
+
+\title{Titill}
+
+\author{%
+Fyrsti höfundur\autid{1}{0000-0000-0000-0000},
+Annar höfundur\autid{1}{0000-0000-0000-0000},
+Þriðji höfundur\autid{2}{0000-0000-0000-0000}%
+}
+
+\affil{1}{Deild, háskóli}
+\affil{2}{Önnur deild, háskóli}
+
+% Helpers pandoc's LaTeX writer expects
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setlength{\emergencystretch}{3em}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{%
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+\def\fps@figure{htbp}
+\makeatother
+\usepackage{longtable,booktabs,array,calc}
+\newcounter{none}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Efnisyfirlit}
+\else
+  \newcommand\contentsname{Efnisyfirlit}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Myndayfirlit}
+\else
+  \newcommand\listfigurename{Myndayfirlit}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Töfluyfirlit}
+\else
+  \newcommand\listtablename{Töfluyfirlit}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Mynd}
+\else
+  \newcommand\figurename{Mynd}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tafla}
+\else
+  \newcommand\tablename{Tafla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listun}
+\newcommand*\listoflistings{\listof{codelisting}{Listanayfirlit}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+
+\section{Inngangur}\label{inngangur}
+
+Inngangur lýsir vandamáli eða áskorun sem höfundur/ar stóðu frammi fyrir
+í kennslu og markmiði verkefnisins.
+
+Kennsluakademían leggur áherslu á að styðja bæði rannsóknarverkefni og
+kennsluþróunarverkefni/umbætur á kennslu sem miða að því að efla gæði
+náms og kennslu. Akademían samþykkir útdrætti sem byggir á rannsóknum
+tengdum háskólum, rannsóknarverkefnum á eigin kennslu (SotL), sem og
+útdrætti sem lýsa umbótum á kennsluaðferðum og kennsluþróun sem miða að
+því að innleiða nýjar aðferðir, verkfæri eða stefnu til að bæta
+námsupplifun nemenda og kennslugæði.
+
+Með þessu vill Kennsluakademían skapa vettvang þar sem fram fer umræða
+um hvoru tveggja fræðilegar rannsóknir á kennslu og hagnýtar
+kennsluumbætur. Höfundar hvattir til að setja verkefni í fræðilegt
+samhengi, með því að vísa í rannsóknir á tengdum sambærilegum verkefnum.
+
+\section{Aðferð}\label{auxf0feruxf0}
+
+Aðferð lýsir framkvæmd verkefnisins, þeirri aðferð eða inngripi sem var
+notuð til að leysa vandamálið og hvaða gögnum var safnað til að meta
+árangur verkefnisins.
+
+\section{Niðurstöður}\label{niuxf0urstuxf6uxf0ur}
+
+Niðurstöður lýsa árangri af verkefninu, t.d. hvaða áhrif hafði verkefnið
+á náms árangur nemenda og upplifun af náminu.
+
+\section{Umræður}\label{umruxe6uxf0ur}
+
+Í umræðum eru niðurstöður ræddar svo sem hvað hefði mátt betur fara og
+hvað mögulegu úrbætur væri hægt að gera í framtíðinni. Í umræðum eru
+niðurstöður jafnfram ræddar út frá rannsóknium annar á viðfangsefninu.
+
+\nocite{*}
+\bibliographystyle{plainnat}
+\bibliography{references.bib}
+
+
+\end{document}

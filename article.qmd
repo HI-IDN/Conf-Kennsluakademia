@@ -1,7 +1,7 @@
 ---
 # File: article.qmd
-# Quarto version of main.tex: renders the same PDF (through kennsluakademia_conf.cls)
-# and a web version in the HÍ look.  Render both with:  quarto render article.qmd
+# Source of the article: renders article.pdf (through kennsluakademia_conf.cls, keeping
+# the generated article.tex) and a web version in the HÍ look.  Render both with:  quarto render article.qmd
 title: Titill
 conference: Ráðstefna Kennsluakademíu opinberu háskólanna
 address: Veröld Háskóla Íslands
@@ -41,6 +41,7 @@ filters:
 format:
   pdf:
     template: quarto/kennsluakademia-template.tex
+    keep-tex: true
     pdf-engine: pdflatex
     cite-method: natbib
     biblio-style: plainnat
@@ -55,7 +56,7 @@ format:
       - quarto/title-block.html
     include-in-header:
       - text: |
-          <link rel="icon" type="image/svg+xml" href="quarto/favicon.svg">
+          <link rel="icon" type="image/png" href="quarto/favicon.png">
 ---
 
 # Inngangur

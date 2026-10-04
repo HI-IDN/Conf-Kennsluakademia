@@ -2,7 +2,6 @@
 /.quarto/
 /article.html
 /article_files/
-/article.tex
 
 # LaTeX build files
 *.aux

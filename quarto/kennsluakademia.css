@@ -25,12 +25,31 @@
 }
 .ka-conference {
   color: var(--ka-lightblue);
-  margin: .4rem 0 0;
+  margin: 1rem 0 0;
 }
 
 /* \maketitle: centred title block */
 .ka-title-block {
   margin-bottom: 1.5rem;
+}
+
+/* Logo, conference line and title stay pinned while the page scrolls;
+   authors, affiliations and keywords scroll away with the text.
+   Only on screens with room for it. */
+@media (min-width: 768px) and (min-height: 600px) {
+  #title-block-header.ka-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bs-body-bg, #fff);
+    padding-top: 1rem;
+  }
+  /* Keep headings clear of the pinned header when jumping from the TOC */
+  #quarto-document-content section > h1,
+  #quarto-document-content section > h2,
+  #quarto-appendix section {
+    scroll-margin-top: 15rem;
+  }
 }
 #title-block-header.ka-title-block h1.title {
   color: var(--ka-darkblue);
@@ -50,7 +69,7 @@
 .ka-author sup {
   margin-right: .15em;
 }
-#title-block-header a.ka-orcid {
+#quarto-document-content .ka-title-meta a.ka-orcid {
   color: var(--ka-lime);
   text-decoration: none;
 }
