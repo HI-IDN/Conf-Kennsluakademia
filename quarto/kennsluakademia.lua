@@ -1,4 +1,6 @@
 -- File: quarto/kennsluakademia.lua
+-- Sets `numbered-affiliations` when there is more than one affiliation, so the
+-- templates only print affiliation numbers when they are needed.
 -- ::: {.ka-callout title="..."} becomes \callout{title}{body} in LaTeX (see the class),
 -- and a titled box in the conference colours in HTML.
 
@@ -22,4 +24,12 @@ function Div(el)
     el.content:insert(1, pandoc.Div(pandoc.Plain(title_inlines), { class = "ka-callout-title" }))
     return el
   end
+end
+
+function Meta(meta)
+  local affs = meta.affiliations or meta["by-affiliation"]
+  if affs and #affs > 1 then
+    meta["numbered-affiliations"] = true
+  end
+  return meta
 end

@@ -16,7 +16,7 @@ $endif$
 $if(by-author)$
   <p class="ka-authors">
 $for(by-author)$
-    <span class="ka-author">$it.name.literal$<sup>$for(it.affiliations)$$it.number$$sep$,$endfor$</sup>$if(it.orcid)$<a class="ka-orcid" href="https://orcid.org/$it.orcid$" title="ORCID: $it.orcid$" aria-label="ORCID $it.name.literal$"><i class="fa-brands fa-orcid"></i></a>$endif$</span>$sep$,
+    <span class="ka-author">$it.name.literal$$if(numbered-affiliations)$<sup>$for(it.affiliations)$$it.number$$sep$,$endfor$</sup>$endif$$if(it.orcid)$<a class="ka-orcid" href="https://orcid.org/$it.orcid$" title="ORCID: $it.orcid$" aria-label="ORCID $it.name.literal$"><i class="fa-brands fa-orcid"></i></a>$endif$</span>$sep$,
 $endfor$
   </p>
 $endif$
@@ -24,7 +24,7 @@ $endif$
 $if(by-affiliation)$
   <ul class="ka-affiliations">
 $for(by-affiliation)$
-    <li><sup>$it.number$</sup> $if(it.department)$$it.department$, $endif$$it.name$</li>
+    <li>$if(numbered-affiliations)$<sup>$it.number$</sup> $endif$$if(it.department)$$it.department$, $endif$$it.name$</li>
 $endfor$
   </ul>
 $endif$

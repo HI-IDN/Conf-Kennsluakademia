@@ -1,6 +1,6 @@
 % File: quarto/kennsluakademia-template.tex
 % Pandoc/Quarto template that maps article.qmd metadata onto kennsluakademia_conf.cls,
-% so the Quarto PDF matches the hand-written main.tex.
+% producing article.tex / article.pdf.
 \documentclass{kennsluakademia_conf}
 
 $if(conference)$
@@ -18,14 +18,16 @@ $endif$
 
 \title{$title$}
 
+$-- Affiliation numbers are only printed when there is more than one affiliation
+$-- (numbered-affiliations is set by quarto/kennsluakademia.lua).
 \author{%
 $for(by-author)$
-$it.name.literal$$if(it.orcid)$\autid{$for(it.affiliations)$$it.number$$sep$,$endfor$}{$it.orcid$}$else$\raisebox{1.2ex}{\small $for(it.affiliations)$$it.number$$sep$,$endfor$}$endif$$sep$,
+$it.name.literal$$if(it.orcid)$\autid{$if(numbered-affiliations)$$for(it.affiliations)$$it.number$$sep$,$endfor$$endif$}{$it.orcid$}$elseif(numbered-affiliations)$\raisebox{1.2ex}{\small $for(it.affiliations)$$it.number$$sep$,$endfor$}$endif$$sep$,
 $endfor$%
 }
 
 $for(by-affiliation)$
-\affil{$it.number$}{$if(it.department)$$it.department$, $endif$$it.name$}
+\affil{$if(numbered-affiliations)$$it.number$$endif$}{$if(it.department)$$it.department$, $endif$$it.name$}
 $endfor$
 
 % Helpers pandoc's LaTeX writer expects
