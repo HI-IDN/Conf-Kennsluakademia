@@ -1,70 +1,55 @@
-# Kennsluakademía Conference LaTeX Class
+# Kennsluakademía Conference Template
 ## Overview
-This repository contains the LaTeX class file kennsluakademia_conf.cls, designed for formatting submissions to the Kennsluakademía Conference of Iceland's public universities. The class file provides structure for creating academic papers in Icelandic, with features like custom author commands, ORCID integration, and support for conference-specific metadata such as keywords, affiliations, and logos.
+A template for submissions to the Kennsluakademía Conference of Iceland's public universities. You write your abstract once, in [article.qmd](article.qmd), and [Quarto](https://quarto.org/) produces:
 
-## Features
-- **Two-column layout** with a full-width title and author block.
-- **Custom conference metadata**: Easily set conference name, location, and date.
-- **ORCID integration**: Include ORCID IDs for each author.
-- **Custom affiliations**: Support for adding multiple author affiliations.
-- **MIT License**: Free and open-source.
+- **article.pdf**: the two-column conference PDF, typeset with the LaTeX class [kennsluakademia_conf.cls](kennsluakademia_conf.cls)
+- **article.tex**: the LaTeX source behind that PDF (generated, see below)
+- **article.html**: a web version, published at <https://hi-idn.github.io/Conf-Kennsluakademia/>
+
+```
+article.qmd  ──quarto render──►  article.tex  ──pdflatex──►  article.pdf
+     │
+     └──────────quarto render──►  article.html
+```
+
+> **Edit `article.qmd`, not `article.tex`.** Every render overwrites `article.tex`. It is kept in the repository so you can see, or send, the plain LaTeX version, and it still compiles on its own with pdflatex + bibtex.
+
 ## Quick Start
-### 1. Using the Class
-To use this LaTeX class in your project, add the following to the top of your `.tex` document:
+1. Install [Quarto](https://quarto.org/docs/get-started/) and a LaTeX distribution (`quarto install tinytex` is enough).
+2. Edit the front matter and text in [article.qmd](article.qmd).
+3. Render everything:
 
-```latex
-\documentclass{kennsluakademia_conf}
-```
-### 2. Specifying Metadata
-You can specify the title, authors, conference details, and keywords directly in the preamble of your `.tex` file:
-```latex
-\title{Titill greinar}
-\author{%
-First Author\autid{1}{0000-0000-0000-0000}, 
-A. N. Other\autid{2}{0000-0000-0000-0000}, 
-Third Author\autid{2,3}{0000-0000-0000-0000}, 
-Fourth Author\autid{3}{0000-0000-0000-0000}%
-}
-\affil{1}{Department, University}
-\affil{2}{Department, Institution}
-\affil{3}{Another Department, Different Institution}
+   ```bash
+   quarto render article.qmd
+   ```
 
-\keywords{Lykilorð 1, lykilorð 2, lykilorð 3}
-\address{Veröld Háskóla Íslands}
-\date{22 nóvember, 2024}
-```
+   To work on the web version with live reload, use `quarto preview article.qmd --to haskoli-islands-html`.
+4. Commit and push. GitHub Actions renders again and publishes the web version (with the PDF) to GitHub Pages. It does not commit anything back, so render locally if you want the `article.tex` and `article.pdf` in the repository to be up to date.
 
-### 3. Custom Commands
-- `\title{}`: Set the title of the paper.
-- `\author{}`: Define authors with optional ORCID and corresponding author email.
-- `\affil{}`: Specify affiliations. Each author’s affiliation is numbered.
-- `\keywords{}`: Define the keywords for the paper.
-- `\address{}`: Set the location of the conference.
-- `\date{}`: Define the date of the conference.
-- `\conference{}`: Modify the default conference name.
+## Writing article.qmd
+Metadata goes in the YAML front matter at the top. Each field maps onto a command in the class:
 
-### 4. ORCID Integration
-To include ORCID IDs for each author, use the `\autid{author number}{ORCID}` command within the `\author{}` declaration. For example:
-```latex
-First Author\autid{1}{0000-0000-0000-0000}
-```
-### 5. Generating the Title
-The title is automatically generated when you call `\maketitle` in your document, which will print the title, author list, affiliations, and keywords.
-
-### 6. Example Document
-A minimal example of a `.tex` file using this class is provided in [article.tex](article.tex) and a rendered version is in [article.pdf](article.pdf). Both are generated from [article.qmd](article.qmd) (see below), so edit the `.qmd` rather than the `.tex`; `article.tex` still compiles on its own with pdflatex + bibtex.
-
-## Quarto version (PDF + web)
-[article.qmd](article.qmd) is the source of the example. One command renders both the PDF and the web version:
-
-```bash
-quarto render article.qmd
+```yaml
+title: Titill greinar                  # \title
+conference: Ráðstefna Kennsluakademíu opinberu háskólanna   # \conference
+address: Veröld Háskóla Íslands        # \address
+date: 2026-11-20                       # \date, shown as "20 nóvember, 2026"
+keywords:                              # \keywords
+  - Lykilorð 1
+  - lykilorð 2
+author:                                # \author with \autid{affiliation}{ORCID}
+  - name: Fyrsti höfundur
+    orcid: 0000-0000-0000-0000
+    affiliations:
+      - ref: aff1
+affiliations:                          # \affil, numbered automatically
+  - id: aff1
+    department: Deild
+    name: háskóli
+bibliography: references.bib
 ```
 
-- **PDF** (`article.pdf`, plus the generated `article.tex`): goes through `kennsluakademia_conf.cls` via [quarto/kennsluakademia-template.tex](quarto/kennsluakademia-template.tex) (pdflatex + natbib/plainnat).
-- **Web** (`article.html`): the HÍ Quarto theme (`_extensions/hi-idn/haskoli-islands`, the HTML part of the theme used in quarto-hi) plus the conference look: logo and conference line, dark-blue title, ORCID icons, numbered affiliations, keywords, Roman-numeral small-caps sections. See [quarto/title-block.html](quarto/title-block.html) and [quarto/kennsluakademia.css](quarto/kennsluakademia.css). References use APA (`quarto/apa.csl`).
-
-Metadata maps onto the class commands: `title`, `author` (`name`, `orcid`, `affiliations: [ref: ...]`), `affiliations` (`id`, `department`, `name`), `keywords`, `address`, `date`, `conference`. A box in the conference colours (`\callout`) is written as:
+The body is Markdown: `# Inngangur` becomes a numbered section (I, II, …), citations are written `@felten2013` or `[@felten2013]`, and `nocite: "@*"` lists every entry in `references.bib`. A box in the conference colours (`\callout` in the class) is written as:
 
 ```markdown
 ::: {.ka-callout title="Fyrirsögn"}
@@ -72,16 +57,52 @@ Texti.
 :::
 ```
 
-## Customization
-You can modify the header, footer, colors, and other layout options by editing the [kennsluakademia_conf.cls](kennsluakademia_conf.cls) file.
+References are formatted with plainnat in the PDF and with APA ([quarto/apa.csl](quarto/apa.csl)) on the web.
 
-- **Header**: The header includes a conference logo and information, which you can adjust by modifying the `fancyhdr` section.
-- **Fonts**: The class defaults to sans-serif (`helvet` package), but this can be changed by loading a different font package.
-- **Section Formatting**: Section titles are displayed in small caps with Roman numerals for numbering. Modify the \titleformat{} commands to customize this.
+## What controls what
+| File | Controls |
+|---|---|
+| [kennsluakademia_conf.cls](kennsluakademia_conf.cls) | PDF look: layout, header with logo, fonts, colours, section style |
+| [quarto/kennsluakademia-template.tex](quarto/kennsluakademia-template.tex) | How the front matter is turned into `article.tex` |
+| [quarto/title-block.html](quarto/title-block.html), [quarto/kennsluakademia.css](quarto/kennsluakademia.css) | Web look: pinned logo, conference line and title; authors, ORCID, keywords, section numbering |
+| [quarto/kennsluakademia.lua](quarto/kennsluakademia.lua) | The `.ka-callout` box in both formats |
+| `_extensions/hi-idn/haskoli-islands/` | Base HÍ web theme (Jost font, colours, table of contents) |
+| [.github/workflows/publish.yml](.github/workflows/publish.yml) | Build and publish to GitHub Pages |
+
+## Using the class without Quarto
+The class also works on its own in any LaTeX document; `article.tex` is a complete example.
+
+```latex
+\documentclass{kennsluakademia_conf}
+
+\title{Titill greinar}
+\author{%
+First Author\autid{1}{0000-0000-0000-0000},
+A. N. Other\autid{2}{0000-0000-0000-0000},
+Third Author\autid{2,3}{0000-0000-0000-0000}%
+}
+\affil{1}{Department, University}
+\affil{2}{Department, Institution}
+\affil{3}{Another Department, Different Institution}
+
+\keywords{Lykilorð 1, lykilorð 2, lykilorð 3}
+\address{Veröld Háskóla Íslands}
+\date{20 nóvember, 2026}
+
+\begin{document}
+\maketitle
+...
+\end{document}
+```
+
+- `\title{}`, `\keywords{}`, `\address{}` (conference location), `\date{}` (conference date), `\conference{}` (overrides the default conference name)
+- `\author{}` with `\autid{affiliation number}{ORCID}` after each name; `\affil{number}{text}` for each affiliation
+- `\maketitle` prints the title, authors, affiliations and keywords
+- `\callout{title}{text}` draws a box in the conference colours
 
 ## License
-This class is provided under the MIT License. See [LICENSE](LICENSE) for more details.
+This template is provided under the MIT License. See [LICENCE](LICENCE) for more details.
 
 ## Contact
 For questions, issues, or contributions, please contact: Helga Ingimundardóttir
-Email: [helgaingim@hi.is](emailto:helgaingim@hi.is).
+Email: [helgaingim@hi.is](mailto:helgaingim@hi.is).
