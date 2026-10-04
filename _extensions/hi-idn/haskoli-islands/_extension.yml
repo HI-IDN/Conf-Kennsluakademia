@@ -1,12 +1,12 @@
-title: Háskóli Íslands Theme
-author: tungufoss
+title: Háskóli Íslands Theme (HTML)
+author: HI-IDN
 version: 0.2.0
 quarto-required: ">=1.5.0"
+# HTML-only subset of the HÍ Quarto theme (tungufoss/quarto-haskoli-islands-theme v0.2.0).
+# Registered as the `haskoli-islands-html` format.
 contributes:
-  # Quarto registers these as `haskoli-islands-html` and
-  # `haskoli-islands-revealjs` (extension name + base format).
   formats:
-    common:
+    html:
       lang: en
       date-format: long
       citations-hover: true
@@ -17,7 +17,6 @@ contributes:
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&display=swap">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-    html:
       theme:
         - cosmo
         - html.scss
@@ -27,21 +26,3 @@ contributes:
       link-external-icon: true
       smooth-scroll: true
       anchor-sections: true
-    revealjs:
-      theme:
-        - revealjs.scss
-      width: 1280
-      height: 720
-      slide-number: true
-      show-slide-number: speaker
-      controls: true
-      transition: none
-      background-transition: none
-      code-overflow: wrap
-      filters:
-        - hi-slides.lua
-        - card-enum.lua
-        - menti.lua
-      shortcodes:
-        - hi-title.lua
-        - pause.lua

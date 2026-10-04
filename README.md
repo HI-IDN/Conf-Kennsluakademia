@@ -62,7 +62,7 @@ quarto render article.qmd
 ```
 
 - **PDF** (`article.pdf`, plus the generated `article.tex`): goes through `kennsluakademia_conf.cls` via [quarto/kennsluakademia-template.tex](quarto/kennsluakademia-template.tex) (pdflatex + natbib/plainnat).
-- **Web** (`article.html`): the HÍ Quarto theme (`_extensions/tungufoss/haskoli-islands`, copied from quarto-hi) plus the conference look: logo and conference line, dark-blue title, ORCID icons, numbered affiliations, keywords, Roman-numeral small-caps sections. See [quarto/title-block.html](quarto/title-block.html) and [quarto/kennsluakademia.css](quarto/kennsluakademia.css). References use APA (`quarto/apa.csl`).
+- **Web** (`article.html`): the HÍ Quarto theme (`_extensions/hi-idn/haskoli-islands`, the HTML part of the theme used in quarto-hi) plus the conference look: logo and conference line, dark-blue title, ORCID icons, numbered affiliations, keywords, Roman-numeral small-caps sections. See [quarto/title-block.html](quarto/title-block.html) and [quarto/kennsluakademia.css](quarto/kennsluakademia.css). References use APA (`quarto/apa.csl`).
 
 Metadata maps onto the class commands: `title`, `author` (`name`, `orcid`, `affiliations: [ref: ...]`), `affiliations` (`id`, `department`, `name`), `keywords`, `address`, `date`, `conference`. A box in the conference colours (`\callout`) is written as:
 
