@@ -7,15 +7,15 @@ A template for submissions to the Kennsluakademía Conference of Iceland's publi
 - **article.html**: a web version, published at <https://hi-idn.github.io/Conf-Kennsluakademia/>
 
 ```
-article.qmd  ──quarto render──►  article.tex  ──pdflatex──►  article.pdf
+article.qmd  ──quarto render──►  article.tex  ──pdflatex --shell-escape + Inkscape──►  article.pdf
      │
      └──────────quarto render──►  article.html
 ```
 
-> **Edit `article.qmd`, not `article.tex`.** Every render overwrites `article.tex`. It is kept in the repository so you can see, or send, the plain LaTeX version, and it still compiles on its own with pdflatex + bibtex.
+> **Edit `article.qmd`, not `article.tex`.** Every render overwrites `article.tex`. It is kept in the repository so you can see, or send, the plain LaTeX version, and it still compiles on its own with `pdflatex --shell-escape` + `bibtex`. SVG logos are converted to PDF by the `svg` LaTeX package using Inkscape.
 
 ## Quick Start
-1. Install [Quarto](https://quarto.org/docs/get-started/) and a LaTeX distribution (`quarto install tinytex` is enough).
+1. Install [Quarto](https://quarto.org/docs/get-started/), a LaTeX distribution (`quarto install tinytex` is enough), and [Inkscape](https://inkscape.org/release/) for converting the SVG logo in the PDF.
 2. Edit the front matter and text in [article.qmd](article.qmd).
 3. Render everything:
 
@@ -62,15 +62,31 @@ References are formatted with plainnat in the PDF and with APA ([quarto/apa.csl]
 ## What controls what
 | File | Controls |
 |---|---|
-| [kennsluakademia_conf.cls](kennsluakademia_conf.cls) | PDF look: layout, header with logo, fonts, colours, section style |
+| [kennsluakademia_conf.cls](kennsluakademia_conf.cls) | PDF look: layout, header with the vector `quarto/logo-long.svg`, fonts, colours, section style |
 | [quarto/kennsluakademia-template.tex](quarto/kennsluakademia-template.tex) | How the front matter is turned into `article.tex` |
-| [quarto/title-block.html](quarto/title-block.html), [quarto/kennsluakademia.css](quarto/kennsluakademia.css) | Web look: pinned logo, conference line and title; authors, ORCID, keywords, section numbering |
+| [quarto/title-block.html](quarto/title-block.html), [quarto/kennsluakademia.css](quarto/kennsluakademia.css) | Web look: pinned SVG logo, conference line and title; authors, ORCID, keywords, section numbering |
 | [quarto/kennsluakademia.lua](quarto/kennsluakademia.lua) | The `.ka-callout` box in both formats |
 | `_extensions/hi-idn/haskoli-islands/` | Base HÍ web theme (Jost font, colours, table of contents) |
 | [.github/workflows/publish.yml](.github/workflows/publish.yml) | Build and publish to GitHub Pages |
 
+## Reusable SVG logos
+
+- [logo-short.svg](quarto/logo-short.svg): the two-line “KENNSLU AKADEMÍA” mark.
+- [logo-long.svg](quarto/logo-long.svg): adds “OPINBERU HÁSKÓLANNA”.
+- [favicon.svg](quarto/favicon.svg): the standalone two-colour symbol used by both wordmarks and as the web favicon.
+
+The wordmark text stays editable SVG text. The PDF build uses the LaTeX `svg` package and Inkscape, so keep `--shell-escape` enabled when compiling.
+
 ## Using the class without Quarto
-The class also works on its own in any LaTeX document; `article.tex` is a complete example.
+
+The class also works on its own in any LaTeX document; `article.tex` is a complete example. With Inkscape and a LaTeX distribution installed, compile with shell escape enabled:
+
+```bash
+pdflatex --shell-escape article.tex
+bibtex article
+pdflatex --shell-escape article.tex
+pdflatex --shell-escape article.tex
+```
 
 ```latex
 \documentclass{kennsluakademia_conf}
