@@ -84,7 +84,7 @@ The Kennsluakademía logos are in [template/logos/](template/logos/) as SVG, fre
 
 ## Placeholders and extras
 - The header line takes `conference`, `address` and `conference-date` from the front matter. Type the venue and the date by hand, e.g. `address: Saga, Háskóli Íslands` and `conference-date: 20. nóvember 2026`; the placeholders `<háskólabygging>` and `<dags>` show where.
-- The commented block after the front matter is an optional note for the top of the web page (venue, session, links to the published paper and slides). The `other-links` in the front matter fill "Tengt efni" in the sidebar; replace the placeholder links.
+- The grey box after the front matter is shown at the top of the web page only, not in the PDF: where and when the talk was given (venue, session, room, time), links to the published paper and slides, and an optional note from the author as a second paragraph. Fill it in or delete it. The `other-links` in the front matter fill "Tengt efni" in the sidebar; replace the placeholder links.
 - The "Tilvitnun" section at the end shows how to cite the paper, with a BibTeX entry. Replace the placeholders there too.
 - Slides: the [quarto-hi](https://github.com/tungufoss/quarto-hi) template gives you RevealJS slides in the HÍ look that match this page. Link them from `other-links` as `slides/`.
 

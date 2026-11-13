@@ -72,13 +72,15 @@ format:
         href: https://kennsluakademia.hi.is/radstefna-kennsluakademiunnar/
 ---
 
-<!-- Valkvætt: athugasemd efst á vefsíðunni, aðeins í HTML.
 :::::: {.content-visible when-format="html"}
 ::: {.pub-note}
-Erindið var flutt á [Ráðstefnu Kennsluakademíu](https://kennsluakademia.hi.is/radstefna-kennsluakademiunnar/) í \<háskólabygging\>, \<dags\>. [Útgefið erindi (PDF)](\<slóð\>) · [Glærur](slides/)
+Erindið var flutt á [Ráðstefnu Kennsluakademíu opinberu háskólanna](https://kennsluakademia.hi.is/radstefna-kennsluakademiunnar/) í \<háskólabygging\>, \<dags\>: Málstofa \<númer\>: \<heiti málstofu\>, stofa \<stofa\>, kl. \<tími\>. [Útgefið erindi (PDF)](https://kennsluakademia.hi.is/wp-content/uploads/ÁÁÁÁ/MM/skra.pdf) · [Glærur](slides/)
+
+Valkvæð athugasemd frá höfundi, t.d. ef erindið var líka flutt annars staðar. Eyddu þessari málsgrein ef hennar er ekki þörf.
 :::
 ::::::
--->
+
+<!-- Kassinn hér að ofan birtist aðeins á vefsíðunni, efst, ekki í PDF. Fylltu út málstofu, stofu og tíma og bættu við eða eyddu athugasemd frá höfundi. -->
 
 # Inngangur
 
