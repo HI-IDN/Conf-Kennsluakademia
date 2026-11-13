@@ -67,7 +67,7 @@ format:
         href: slides/                       # <slóð á glærur>; sniðmát fyrir glærur: https://github.com/tungufoss/quarto-hi
       - text: Útgefið erindi
         icon: file-earmark-pdf
-        href: https://kennsluakademia.hi.is/wp-content/uploads/ÁÁÁÁ/MM/skra.pdf   # <slóð á útgefið erindi>
+        href: https://kennsluakademia.hi.is/wp-content/uploads/ÁÁÁÁ/MM/Titill.pdf   # <slóð á útgefið erindi>
       - text: Ráðstefna Kennsluakademíu
         icon: calendar-event
         href: https://kennsluakademia.hi.is/radstefna-kennsluakademiunnar/
@@ -75,7 +75,7 @@ format:
 
 :::::: {.content-visible when-format="html"}
 ::: {.pub-note}
-Erindið var flutt á [Ráðstefnu Kennsluakademíu opinberu háskólanna](https://kennsluakademia.hi.is/radstefna-kennsluakademiunnar/) í \<háskólabygging\>, \<dags\>: Málstofa \<númer\>: \<heiti málstofu\>, stofa \<stofa\>, kl. \<tími\>. [Útgefið erindi (PDF)](https://kennsluakademia.hi.is/wp-content/uploads/ÁÁÁÁ/MM/skra.pdf) · [Glærur](slides/)
+Erindið var flutt á [Ráðstefnu Kennsluakademíu opinberu háskólanna](https://kennsluakademia.hi.is/radstefna-kennsluakademiunnar/) í \<háskólabygging\>, \<dags\>: Málstofa \<númer\>: \<heiti málstofu\>, stofa \<stofa\>, kl. \<tími\>. [Útgefið erindi (PDF)](https://kennsluakademia.hi.is/wp-content/uploads/ÁÁÁÁ/MM/Titill.pdf) · [Glærur](slides/)
 
 Valkvæð athugasemd frá höfundi, t.d. ef erindið var líka flutt annars staðar. Eyddu þessari málsgrein ef hennar er ekki þörf.
 :::
@@ -120,7 +120,7 @@ Texti í rammanum.
 
 Vinsamlega vitnið í þetta verk sem:
 
-Eftirnafn, Fornafn. 2026. „Titill.“ *Ráðstefna Kennsluakademíu opinberu háskólanna*, \<háskólabygging\>, \<staður\>, \<dags\>. \<slóð\>.
+Eftirnafn, Fornafn. 2026. „Titill.“ *Ráðstefna Kennsluakademíu opinberu háskólanna*, \<háskólabygging\>, \<staður\>, \<dags\>. https://kennsluakademia.hi.is/wp-content/uploads/ÁÁÁÁ/MM/Titill.pdf.
 
 BibTeX tilvitnun:
 
@@ -131,7 +131,7 @@ BibTeX tilvitnun:
   booktitle = {Ráðstefna Kennsluakademíu opinberu háskólanna},
   date = {2026-11-20},
   address = {<háskólabygging>, <staður>},
-  url = {<slóð>}
+  url = {https://kennsluakademia.hi.is/wp-content/uploads/ÁÁÁÁ/MM/Titill.pdf}
 }
 ```
 :::
