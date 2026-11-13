@@ -77,7 +77,7 @@ The Kennsluakademía logos are in [template/logos/](template/logos/) as SVG, fre
 |---|---|
 | [kennsluakademia_conf.cls](template/latex/kennsluakademia_conf.cls) | PDF look: layout, header with logo, fonts, colours, section style |
 | [template/quarto/kennsluakademia-template.tex](template/quarto/kennsluakademia-template.tex) | How the front matter is turned into the `.tex` file |
-| [template/logos/](template/logos/) | The logos as SVG: `short.svg`, `long.svg` and `favicon.svg`. The web page uses `short.svg` and `favicon.svg`; the PDF header uses `short.svg` too, through the LaTeX `svg` package |
+| [template/logos/](template/logos/) | The logos as SVG: `short.svg`, `long.svg` and `favicon.svg`. The web page uses `short.svg` and `favicon.svg`. The PDF header uses `short.pdf`, a vector copy of `short.svg` that was made once, so nothing extra (no Inkscape) is needed to build the PDF |
 | [template/quarto/title-block.html](template/quarto/title-block.html), [template/quarto/kennsluakademia.css](template/quarto/kennsluakademia.css) | Web look: pinned logo, conference line and title; authors, ORCID, keywords, section numbering |
 | [template/quarto/kennsluakademia.lua](template/quarto/kennsluakademia.lua) | The `.ka-callout` box in both formats |
 | `_extensions/hi-idn/haskoli-islands/` | Base HÍ web theme (Jost font, colours, table of contents) |

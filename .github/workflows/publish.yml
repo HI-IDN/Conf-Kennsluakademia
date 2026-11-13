@@ -29,9 +29,6 @@ jobs:
         with:
           tinytex: true
 
-      - name: Install Inkscape (SVG logo in the PDF)
-        run: sudo apt-get update && sudo apt-get install -y inkscape
-
       - name: Render PDF and HTML
         run: quarto render *.qmd
 

@@ -15,5 +15,3 @@
 # Build output: rendered by GitHub Actions (quarto render)
 /*.pdf
 /*.tex
-/svg-inkscape/
-/*_svg-tex.pdf_tex

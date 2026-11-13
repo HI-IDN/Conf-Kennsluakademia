@@ -1,15 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="299" height="140" viewBox="0 0 299 140" role="img" aria-labelledby="title">
-  <title id="title">Kennsluakademía opinberu háskólanna</title>
-    <svg x="8" y="20" width="57.8" height="86.36" viewBox="0 0 85 127" aria-hidden="true">
-    <path fill="#1c3e64" d="M45 2 L45 70 L83 90 L83 22 Z"/>
-    <path fill="#1c3e64" d="M40 2 L40 70 L2 90 L2 22 Z"/>
-    <path fill="#83bdba" d="M45 74 L45 102 L83 122 L83 94 Z"/>
-    <path fill="#83bdba" d="M40 74 L40 102 L2 122 L2 94 Z"/>
-  </svg>
-  <g fill="#1c3e64" font-family="Arial, Helvetica, sans-serif" font-weight="700">
-    <text x="75" y="54" font-size="33px">KENNSLU</text>
-    <text x="75" y="91" font-size="33px">AKADEMÍA</text>
-    <text x="75" y="111" font-size="14px">OPINBERU HÁSKÓLANNA</text>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="261.23633"
+   height="82.237442"
+   viewBox="0 0 261.23633 82.237442"
+   role="img"
+   aria-labelledby="t"
+   version="1.1"
+   id="svg18"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs22" />
+  <title
+     id="t">Kennsluakademía opinberu háskólanna</title>
+  <g
+     transform="matrix(0.68,0,0,0.68,-1.36,-0.91298805)"
+     id="g11">
+    <path
+       fill="#1c3e64"
+       d="M 45,2 V 70 L 83,90 V 22 Z"
+       id="path3" />
+    <path
+       fill="#1c3e64"
+       d="M 40,2 V 70 L 2,90 V 22 Z"
+       id="path5" />
+    <path
+       fill="#83bdba"
+       d="m 45,74 v 28 l 38,20 V 94 Z"
+       id="path7" />
+    <path
+       fill="#83bdba"
+       d="m 40,74 v 28 L 2,122 V 94 Z"
+       id="path9" />
+  </g>
+  <g
+     fill="#1c3e64"
+     font-family="Arial, Helvetica, sans-serif"
+     font-weight="700"
+     id="g16"
+     transform="translate(0,0.44701195)">
+    <text
+       id="a"
+       x="62"
+       y="26.49"
+       font-size="37px">KENNSLU</text>
+    <text
+       id="b"
+       x="62"
+       y="62.860001"
+       font-size="37px">AKADEMÍA</text>
+    <text
+       id="c"
+       x="63.200001"
+       y="81.599998"
+       font-size="15px"
+       textLength="196.60001"
+       lengthAdjust="spacing">OPINBERU HÁSKÓLANNA</text>
   </g>
 </svg>

@@ -7,6 +7,9 @@ title: Titill
 conference: Ráðstefna Kennsluakademíu opinberu háskólanna
 address: '\<háskólabygging\>'
 conference-date: '\<dags\>'     # skrifaðu dagsetningu ráðstefnunnar handvirkt, t.d. 20. nóvember 2026
+session: '\<Málstofa númer: heiti málstofu\>'   # aðeins notað í kassanum á vefsíðunni
+room: '\<stofa\>'
+session-time: '\<tími\>'                          # t.d. 9:00–10:30
 lang: is
 keywords:
   - Lykilorð 1
@@ -43,7 +46,6 @@ format:
     template: template/quarto/kennsluakademia-template.tex
     keep-tex: true
     pdf-engine: pdflatex
-    pdf-engine-opt: --shell-escape
     cite-method: natbib
     biblio-style: plainnat
   haskoli-islands-html:
@@ -75,13 +77,13 @@ format:
 
 :::::: {.content-visible when-format="html"}
 ::: {.pub-note}
-Erindið var flutt á [Ráðstefnu Kennsluakademíu opinberu háskólanna](https://kennsluakademia.hi.is/radstefna-kennsluakademiunnar/) í \<háskólabygging\>, \<dags\>: Málstofa \<númer\>: \<heiti málstofu\>, stofa \<stofa\>, kl. \<tími\>. [Útgefið erindi (PDF)](https://kennsluakademia.hi.is/wp-content/uploads/ÁÁÁÁ/MM/Titill.pdf) · [Glærur](slides/)
+Erindið var flutt á [Ráðstefnu Kennsluakademíu opinberu háskólanna](https://kennsluakademia.hi.is/radstefna-kennsluakademiunnar/) í {{< meta address >}}, {{< meta conference-date >}}: {{< meta session >}}, stofa {{< meta room >}}, kl. {{< meta session-time >}}. [Útgefið erindi (PDF)](https://kennsluakademia.hi.is/wp-content/uploads/ÁÁÁÁ/MM/Titill.pdf) · [Glærur](slides/)
 
 Valkvæð athugasemd frá höfundi, t.d. ef erindið var líka flutt annars staðar. Eyddu þessari málsgrein ef hennar er ekki þörf.
 :::
 ::::::
 
-<!-- Kassinn hér að ofan birtist aðeins á vefsíðunni, efst, ekki í PDF. Fylltu út málstofu, stofu og tíma og bættu við eða eyddu athugasemd frá höfundi. -->
+<!-- Kassinn hér að ofan birtist aðeins á vefsíðunni, efst, ekki í PDF. Staður og dagsetning koma úr hausnum (address og conference-date); málstofa, stofa og tími eru í front matter hér að ofan. Bættu við eða eyddu athugasemd frá höfundi. -->
 
 # Inngangur
 
