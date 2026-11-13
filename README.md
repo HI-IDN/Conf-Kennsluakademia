@@ -16,7 +16,7 @@ article.qmd  ──quarto render──►  article.tex  ──pdflatex──► 
 > **Edit `article.qmd`, not `article.tex`.** Every render overwrites `article.tex`. The generated `article.tex` still compiles on its own with pdflatex + bibtex if you need to send the plain LaTeX version.
 
 ## LaTeX only
-The plain LaTeX version of this template (no Quarto) is also available as an [Overleaf template](https://www.overleaf.com/latex/templates/radstefna-kennsluakademiu-opinberu-haskolanna/jkkpnbtxyfzv), and as the [`latex-v1` release](https://github.com/HI-IDN/Conf-Kennsluakademia/releases/tag/latex-v1) of this repository. The class [`kennsluakademia_conf.cls`](template/latex/kennsluakademia_conf.cls) gives a two-column layout with conference information, author affiliations with ORCID, and keywords.
+The plain LaTeX version of this template (no Quarto) is also available as an [Overleaf template](https://www.overleaf.com/latex/templates/radstefna-kennsluakademiu-opinberu-haskolanna/jkkpnbtxyfzv), and as the [`v1` release](https://github.com/HI-IDN/Conf-Kennsluakademia/releases/tag/v1) of this repository. The class [`kennsluakademia_conf.cls`](template/latex/kennsluakademia_conf.cls) gives a two-column layout with conference information, author affiliations with ORCID, and keywords.
 
 ## Quick Start
 1. Install [Quarto](https://quarto.org/docs/get-started/) and a LaTeX distribution (`quarto install tinytex` is enough).
@@ -64,19 +64,19 @@ Texti.
 References are formatted with plainnat in the PDF and with APA ([template/quarto/apa.csl](template/quarto/apa.csl)) on the web.
 
 ## Logos
-The Kennsluakademía logos are in [template/quarto/](template/quarto/) as SVG, free to use in slides and posters:
+The Kennsluakademía logos are in [template/logos/](template/logos/) as SVG, free to use in slides and posters:
 
 | Short | Long | Favicon |
 |---|---|---|
-| <img src="template/quarto/logo-short.svg" height="60"> | <img src="template/quarto/logo-long.svg" height="60"> | <img src="template/quarto/favicon.svg" height="60"> |
-| [logo-short.svg](template/quarto/logo-short.svg) – "KENNSLU AKADEMÍA" | [logo-long.svg](template/quarto/logo-long.svg) – adds "OPINBERU HÁSKÓLANNA" | [favicon.svg](template/quarto/favicon.svg) |
+| <img src="template/logos/short.svg" height="60"> | <img src="template/logos/long.svg" height="60"> | <img src="template/logos/favicon.svg" height="60"> |
+| [short.svg](template/logos/short.svg) – "KENNSLU AKADEMÍA" | [long.svg](template/logos/long.svg) – adds "OPINBERU HÁSKÓLANNA" | [favicon.svg](template/logos/favicon.svg) |
 
 ## What controls what
 | File | Controls |
 |---|---|
 | [kennsluakademia_conf.cls](template/latex/kennsluakademia_conf.cls) | PDF look: layout, header with logo, fonts, colours, section style |
 | [template/quarto/kennsluakademia-template.tex](template/quarto/kennsluakademia-template.tex) | How the front matter is turned into `article.tex` |
-| [template/quarto/logo-short.svg](template/quarto/logo-short.svg), [template/quarto/logo-long.svg](template/quarto/logo-long.svg), [template/quarto/favicon.svg](template/quarto/favicon.svg), [kennsluakademia.pdf](kennsluakademia.pdf) | The logo as SVG for the web (and favicon). `kennsluakademia.pdf` is the same logo as a vector PDF for LaTeX; remake it from the SVG with `inkscape template/quarto/logo-short.svg --export-type=pdf --export-filename=kennsluakademia.pdf` |
+| [template/logos/](template/logos/) | The logos as SVG: `short.svg`, `long.svg` and `favicon.svg`. The web page uses `short.svg` and `favicon.svg`; the PDF header uses `short.svg` too, through the LaTeX `svg` package |
 | [template/quarto/title-block.html](template/quarto/title-block.html), [template/quarto/kennsluakademia.css](template/quarto/kennsluakademia.css) | Web look: pinned logo, conference line and title; authors, ORCID, keywords, section numbering |
 | [template/quarto/kennsluakademia.lua](template/quarto/kennsluakademia.lua) | The `.ka-callout` box in both formats |
 | `_extensions/hi-idn/haskoli-islands/` | Base HÍ web theme (Jost font, colours, table of contents) |

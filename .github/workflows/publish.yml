@@ -37,9 +37,10 @@ jobs:
 
       - name: Collect site
         run: |
-          mkdir -p _site/template/quarto
+          mkdir -p _site/template/quarto _site/template/logos
           cp -r article.html article_files article.pdf _site/
-          cp template/quarto/kennsluakademia.css template/quarto/logo-short.svg template/quarto/favicon.svg _site/template/quarto/
+          cp template/quarto/kennsluakademia.css _site/template/quarto/
+          cp template/logos/short.svg template/logos/favicon.svg _site/template/logos/
           cp article.html _site/index.html
 
       - name: Upload Pages artifact

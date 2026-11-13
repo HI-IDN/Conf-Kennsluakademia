@@ -128,7 +128,7 @@
 % Left header with logo and customizable conference information
 \fancyhead[L]{%
   \begin{minipage}{55mm}
-    \includesvg[width=\linewidth]{template/quarto/logo-short} % SVG logo (needs Inkscape and --shell-escape)
+    \includesvg[width=\linewidth]{template/logos/short} % SVG logo (needs Inkscape and --shell-escape)
   \end{minipage}%
   
   \vskip 6pt

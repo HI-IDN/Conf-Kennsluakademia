@@ -59,7 +59,7 @@ format:
       - template/quarto/title-block.html
     include-in-header:
       - text: |
-          <link rel="icon" type="image/svg+xml" href="template/quarto/favicon.svg">
+          <link rel="icon" type="image/svg+xml" href="template/logos/favicon.svg">
     other-links:
       - text: Glærur
         icon: easel
