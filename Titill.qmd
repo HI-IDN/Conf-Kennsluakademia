@@ -1,7 +1,8 @@
 ---
-# File: article.qmd
-# Source of the article: renders article.pdf (through kennsluakademia_conf.cls, keeping
-# the generated article.tex) and a web version in the HÍ look.  Render both with:  quarto render article.qmd
+# File: Titill.qmd  (rename it after your paper, with _ instead of spaces, e.g. Titill_greinar.qmd;
+# the PDF and the web page get the same name)
+# Renders Titill.pdf (through kennsluakademia_conf.cls, keeping the generated Titill.tex) and a
+# web version in the Kennsluakademía look.  Render both with:  quarto render Titill.qmd
 title: Titill
 conference: Ráðstefna Kennsluakademíu opinberu háskólanna
 address: '\<háskólabygging\>'

@@ -1,36 +1,37 @@
 # Kennsluakademía Conference Template
 ## Overview
-A template for submissions to the Kennsluakademía Conference of Iceland's public universities. You write your abstract once, in [article.qmd](article.qmd), and [Quarto](https://quarto.org/) produces:
+A template for submissions to the Kennsluakademía Conference of Iceland's public universities. You write your abstract once, in [Titill.qmd](Titill.qmd), and [Quarto](https://quarto.org/) produces:
 
-- **article.pdf**: the two-column conference PDF, typeset with the LaTeX class [kennsluakademia_conf.cls](template/latex/kennsluakademia_conf.cls)
-- **article.html**: a web version, published at <https://hi-idn.github.io/Conf-Kennsluakademia/>
+- **Titill.pdf**: the two-column conference PDF, typeset with the LaTeX class [kennsluakademia_conf.cls](template/latex/kennsluakademia_conf.cls)
+- **Titill.html**: a web version, published at <https://hi-idn.github.io/Conf-Kennsluakademia/>
 
-`article.pdf` and `article.tex` are build output: they are not stored in the repository. GitHub Actions renders them on every push and publishes the PDF next to the web version, so you only need to commit `article.qmd`. Render locally to proof the PDF before you submit it.
+`Titill.pdf` and `Titill.tex` are build output: they are not stored in the repository. GitHub Actions renders them on every push and publishes the PDF next to the web version, so you only need to commit the `.qmd`. Render locally to proof the PDF before you submit it.
 
 ```
-article.qmd  ──quarto render──►  article.tex  ──pdflatex──►  article.pdf
+Titill.qmd  ──quarto render──►  Titill.tex  ──pdflatex──►  Titill.pdf
      │
-     └──────────quarto render──►  article.html
+     └──────────quarto render──►  Titill.html
 ```
 
-> **Edit `article.qmd`, not `article.tex`.** Every render overwrites `article.tex`. The generated `article.tex` still compiles on its own with pdflatex + bibtex if you need to send the plain LaTeX version.
+> **Edit the `.qmd`, not the `.tex`.** Every render overwrites the `.tex`. The generated `.tex` still compiles on its own with pdflatex + bibtex if you need to send the plain LaTeX version.
 
 ## LaTeX only
 The plain LaTeX version of this template (no Quarto) is also available as an [Overleaf template](https://www.overleaf.com/latex/templates/radstefna-kennsluakademiu-opinberu-haskolanna/jkkpnbtxyfzv), and as the [`v1` release](https://github.com/HI-IDN/Conf-Kennsluakademia/releases/tag/v1) of this repository. The class [`kennsluakademia_conf.cls`](template/latex/kennsluakademia_conf.cls) gives a two-column layout with conference information, author affiliations with ORCID, and keywords.
 
 ## Quick Start
+0. **Name your files.** Rename `Titill.qmd` after your paper, with `_` instead of spaces, e.g. `Titill_greinar.qmd`. The PDF and the web page get the same name (`Titill_greinar.pdf`, `Titill_greinar.html`), so the file you submit is not called `article.pdf`. GitHub Actions renders every `.qmd` in the root folder.
 1. Install [Quarto](https://quarto.org/docs/get-started/) and a LaTeX distribution (`quarto install tinytex` is enough).
-2. Edit the front matter and text in [article.qmd](article.qmd).
+2. Edit the front matter and text in [Titill.qmd](Titill.qmd).
 3. Render everything:
 
    ```bash
-   quarto render article.qmd
+   quarto render Titill.qmd
    ```
 
-   To work on the web version with live reload, use `quarto preview article.qmd --to haskoli-islands-html`.
+   To work on the web version with live reload, use `quarto preview Titill.qmd --to haskoli-islands-html`.
 4. Commit and push. GitHub Actions renders again and publishes the web version (with the PDF) to GitHub Pages.
 
-## Writing article.qmd
+## Writing the .qmd
 Metadata goes in the YAML front matter at the top. Each field maps onto a command in the class:
 
 ```yaml
@@ -75,7 +76,7 @@ The Kennsluakademía logos are in [template/logos/](template/logos/) as SVG, fre
 | File | Controls |
 |---|---|
 | [kennsluakademia_conf.cls](template/latex/kennsluakademia_conf.cls) | PDF look: layout, header with logo, fonts, colours, section style |
-| [template/quarto/kennsluakademia-template.tex](template/quarto/kennsluakademia-template.tex) | How the front matter is turned into `article.tex` |
+| [template/quarto/kennsluakademia-template.tex](template/quarto/kennsluakademia-template.tex) | How the front matter is turned into the `.tex` file |
 | [template/logos/](template/logos/) | The logos as SVG: `short.svg`, `long.svg` and `favicon.svg`. The web page uses `short.svg` and `favicon.svg`; the PDF header uses `short.svg` too, through the LaTeX `svg` package |
 | [template/quarto/title-block.html](template/quarto/title-block.html), [template/quarto/kennsluakademia.css](template/quarto/kennsluakademia.css) | Web look: pinned logo, conference line and title; authors, ORCID, keywords, section numbering |
 | [template/quarto/kennsluakademia.lua](template/quarto/kennsluakademia.lua) | The `.ka-callout` box in both formats |
@@ -89,7 +90,7 @@ The Kennsluakademía logos are in [template/logos/](template/logos/) as SVG, fre
 - Slides: the [quarto-hi](https://github.com/tungufoss/quarto-hi) template gives you RevealJS slides in the HÍ look that match this page. Link them from `other-links` as `slides/`.
 
 ## Using the class without Quarto
-The class also works on its own in any LaTeX document; `article.tex` is a complete example.
+The class also works on its own in any LaTeX document; a generated `.tex` file is a complete example.
 
 ```latex
 \documentclass{template/latex/kennsluakademia_conf}

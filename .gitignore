@@ -1,7 +1,7 @@
-# Quarto build output (article.qmd)
+# Quarto build output
 /.quarto/
-/article.html
-/article_files/
+/*.html
+/*_files/
 
 # LaTeX build files
 *.aux
@@ -12,7 +12,7 @@
 *.synctex.gz
 /_site/
 
-# Build output: rendered by GitHub Actions (quarto render article.qmd)
-/article.pdf
-/article.tex
+# Build output: rendered by GitHub Actions (quarto render)
+/*.pdf
+/*.tex
 /svg-inkscape/

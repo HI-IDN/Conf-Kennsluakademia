@@ -33,15 +33,15 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y inkscape
 
       - name: Render PDF and HTML
-        run: quarto render article.qmd
+        run: quarto render *.qmd
 
       - name: Collect site
         run: |
           mkdir -p _site/template/quarto _site/template/logos
-          cp -r article.html article_files article.pdf _site/
+          cp -r *.html *_files *.pdf _site/
           cp template/quarto/kennsluakademia.css _site/template/quarto/
           cp template/logos/short.svg template/logos/favicon.svg _site/template/logos/
-          cp article.html _site/index.html
+          cp "$(ls *.html | head -n 1)" _site/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
