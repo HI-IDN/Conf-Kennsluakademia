@@ -4,8 +4,8 @@
 # the generated article.tex) and a web version in the HÍ look.  Render both with:  quarto render article.qmd
 title: Titill
 conference: Ráðstefna Kennsluakademíu opinberu háskólanna
-address: Veröld Háskóla Íslands
-date: 2026-11-20
+address: '\<háskólabygging\>'
+date: 2026-11-20                  # dagsetning ráðstefnunnar
 date-format: "D MMMM, YYYY"
 lang: is
 keywords:
@@ -51,13 +51,34 @@ format:
     csl: quarto/apa.csl
     link-citations: true
     reference-section-title: Tilvísanir
+    language:
+      related-formats-title: Sækja erindið
+      other-links-title: Tengt efni
     css: quarto/kennsluakademia.css
     template-partials:
       - quarto/title-block.html
     include-in-header:
       - text: |
-          <link rel="icon" type="image/png" href="quarto/favicon.png">
+          <link rel="icon" type="image/svg+xml" href="quarto/favicon.svg">
+    other-links:
+      - text: Glærur
+        icon: easel
+        href: slides/                       # <slóð á glærur>; sniðmát fyrir glærur: https://github.com/tungufoss/quarto-hi
+      - text: Útgefið erindi
+        icon: file-earmark-pdf
+        href: https://kennsluakademia.hi.is/wp-content/uploads/ÁÁÁÁ/MM/skra.pdf   # <slóð á útgefið erindi>
+      - text: Ráðstefna Kennsluakademíu
+        icon: calendar-event
+        href: https://kennsluakademia.hi.is/radstefna-kennsluakademiunnar/
 ---
+
+<!-- Valkvætt: athugasemd efst á vefsíðunni, aðeins í HTML.
+:::::: {.content-visible when-format="html"}
+::: {.pub-note}
+Erindið var flutt á [Ráðstefnu Kennsluakademíu](https://kennsluakademia.hi.is/radstefna-kennsluakademiunnar/) í \<háskólabygging\>, \<dags\>. [Útgefið erindi (PDF)](\<slóð\>) · [Glærur](slides/)
+:::
+::::::
+-->
 
 # Inngangur
 
@@ -86,3 +107,29 @@ Rammi í litum ráðstefnunnar (\callout í LaTeX-klasanum):
 Texti í rammanum.
 :::
 -->
+
+:::::: {.content-visible when-format="html"}
+::: {#refs}
+:::
+
+::: {.ka-cite}
+## Tilvitnun {.unnumbered}
+
+Vinsamlega vitnið í þetta verk sem:
+
+Eftirnafn, Fornafn. 2026. „Titill.“ *Ráðstefna Kennsluakademíu opinberu háskólanna*, \<háskólabygging\>, \<staður\>, \<dags\>. \<slóð\>.
+
+BibTeX tilvitnun:
+
+```
+@inproceedings{eftirnafn2026,
+  author = {Eftirnafn, Fornafn},
+  title = {Titill},
+  booktitle = {Ráðstefna Kennsluakademíu opinberu háskólanna},
+  date = {2026-11-20},
+  address = {<háskólabygging>, <staður>},
+  url = {<slóð>}
+}
+```
+:::
+::::::

@@ -11,3 +11,7 @@
 *.out
 *.synctex.gz
 /_site/
+
+# Build output: rendered by GitHub Actions (quarto render article.qmd)
+/article.pdf
+/article.tex

@@ -128,7 +128,7 @@
 % Left header with logo and customizable conference information
 \fancyhead[L]{%
   \begin{minipage}{55mm}
-    \includegraphics[width=\linewidth]{kennsluakademia.png} % Adjust logo file name as needed
+    \includegraphics[width=\linewidth]{kennsluakademia} % kennsluakademia.pdf, made from quarto/logo-short.svg
   \end{minipage}%
   
   \vskip 6pt

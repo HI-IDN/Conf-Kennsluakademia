@@ -7,10 +7,14 @@
   --ka-lime: #A6CE39;
 }
 
-/* Links in dark blue, as with \hypersetup in the class */
+/* Links in the HÍ style blue (same as the slides) */
 #quarto-document-content a,
-#quarto-appendix a {
-  color: var(--ka-darkblue);
+#quarto-appendix a,
+#quarto-margin-sidebar a,
+.quarto-title-meta a {
+  color: #10099F;
+  text-decoration-color: var(--ka-lightblue);
+  text-underline-offset: 2px;
 }
 
 /* Page header: logo and conference line in light blue */
@@ -130,4 +134,47 @@
 }
 .ka-callout p:last-child {
   margin-bottom: 0;
+}
+/* Web look: pale tint, accent bar, quotes as plain emphasised lines */
+.ka-callout {
+  background: rgba(45, 210, 192, .14);
+  border: 0;
+  border-left: 6px solid #2DD2C0;
+}
+.ka-callout blockquote {
+  border-left: 0;
+  margin: 0 0 .5rem;
+  padding: 0 0 0 2.5rem;
+  font-size: 1.05em;
+  font-weight: 600;
+  color: var(--ka-darkblue);
+}
+.ka-callout blockquote p {
+  margin: 0;
+}
+.ka-callout > p {
+  margin: 0 0 .15rem;
+  color: #555;
+  font-size: .9em;
+}
+
+.pub-note {
+  background: #F5F5F5;
+  border-left: 4px solid var(--ka-lightblue);
+  padding: .75rem 1rem;
+  margin: 0 0 1.5rem;
+}
+.pub-note p {
+  margin: 0;
+}
+.pub-note p + p {
+  margin-top: .6rem;
+}
+
+
+.ka-cite pre {
+  background: #F5F5F5;
+  border-left: 4px solid var(--ka-lightblue);
+  padding: .75rem 1rem;
+  white-space: pre-wrap;
 }
