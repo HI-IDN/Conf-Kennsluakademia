@@ -1,7 +1,7 @@
-% File: quarto/kennsluakademia-template.tex
+% File: template/quarto/kennsluakademia-template.tex
 % Pandoc/Quarto template that maps article.qmd metadata onto kennsluakademia_conf.cls,
 % producing article.tex / article.pdf.
-\documentclass{kennsluakademia_conf}
+\documentclass{template/latex/kennsluakademia_conf}
 
 $if(conference)$
 \conference{$conference$}
@@ -9,8 +9,8 @@ $endif$
 $if(address)$
 \address{$address$}
 $endif$
-$if(date)$
-\date{$date$}
+$if(conference-date)$
+\date{$conference-date$}
 $endif$
 $if(keywords)$
 \keywords{$for(keywords)$$keywords$$sep$, $endfor$}
@@ -19,7 +19,7 @@ $endif$
 \title{$title$}
 
 $-- Affiliation numbers are only printed when there is more than one affiliation
-$-- (numbered-affiliations is set by quarto/kennsluakademia.lua).
+$-- (numbered-affiliations is set by template/quarto/kennsluakademia.lua).
 \author{%
 $for(by-author)$
 $it.name.literal$$if(it.orcid)$\autid{$if(numbered-affiliations)$$for(it.affiliations)$$it.number$$sep$,$endfor$$endif$}{$it.orcid$}$elseif(numbered-affiliations)$\raisebox{1.2ex}{\small $for(it.affiliations)$$it.number$$sep$,$endfor$}$endif$$sep$,

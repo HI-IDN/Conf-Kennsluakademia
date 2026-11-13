@@ -2,7 +2,7 @@
 ## Overview
 A template for submissions to the Kennsluakademía Conference of Iceland's public universities. You write your abstract once, in [article.qmd](article.qmd), and [Quarto](https://quarto.org/) produces:
 
-- **article.pdf**: the two-column conference PDF, typeset with the LaTeX class [kennsluakademia_conf.cls](kennsluakademia_conf.cls)
+- **article.pdf**: the two-column conference PDF, typeset with the LaTeX class [kennsluakademia_conf.cls](template/latex/kennsluakademia_conf.cls)
 - **article.html**: a web version, published at <https://hi-idn.github.io/Conf-Kennsluakademia/>
 
 `article.pdf` and `article.tex` are build output: they are not stored in the repository. GitHub Actions renders them on every push and publishes the PDF next to the web version, so you only need to commit `article.qmd`. Render locally to proof the PDF before you submit it.
@@ -34,7 +34,7 @@ Metadata goes in the YAML front matter at the top. Each field maps onto a comman
 title: Titill greinar                  # \title
 conference: Ráðstefna Kennsluakademíu opinberu háskólanna   # \conference
 address: Veröld Háskóla Íslands        # \address
-date: 2026-11-20                       # \date, shown as "20 nóvember, 2026"
+conference-date: 20. nóvember 2026      # \date, typed by hand
 keywords:                              # \keywords
   - Lykilorð 1
   - lykilorð 2
@@ -58,21 +58,29 @@ Texti.
 :::
 ```
 
-References are formatted with plainnat in the PDF and with APA ([quarto/apa.csl](quarto/apa.csl)) on the web.
+References are formatted with plainnat in the PDF and with APA ([template/quarto/apa.csl](template/quarto/apa.csl)) on the web.
+
+## Logos
+The Kennsluakademía logos are in [template/quarto/](template/quarto/) as SVG, free to use in slides and posters:
+
+| Short | Long | Favicon |
+|---|---|---|
+| <img src="template/quarto/logo-short.svg" height="60"> | <img src="template/quarto/logo-long.svg" height="60"> | <img src="template/quarto/favicon.svg" height="60"> |
+| [logo-short.svg](template/quarto/logo-short.svg) – "KENNSLU AKADEMÍA" | [logo-long.svg](template/quarto/logo-long.svg) – adds "OPINBERU HÁSKÓLANNA" | [favicon.svg](template/quarto/favicon.svg) |
 
 ## What controls what
 | File | Controls |
 |---|---|
-| [kennsluakademia_conf.cls](kennsluakademia_conf.cls) | PDF look: layout, header with logo, fonts, colours, section style |
-| [quarto/kennsluakademia-template.tex](quarto/kennsluakademia-template.tex) | How the front matter is turned into `article.tex` |
-| [quarto/logo-short.svg](quarto/logo-short.svg), [quarto/logo-long.svg](quarto/logo-long.svg), [quarto/favicon.svg](quarto/favicon.svg), [kennsluakademia.pdf](kennsluakademia.pdf) | The logo as SVG for the web (and favicon). `kennsluakademia.pdf` is the same logo as a vector PDF for LaTeX; remake it from the SVG with `inkscape quarto/logo-short.svg --export-type=pdf --export-filename=kennsluakademia.pdf` |
-| [quarto/title-block.html](quarto/title-block.html), [quarto/kennsluakademia.css](quarto/kennsluakademia.css) | Web look: pinned logo, conference line and title; authors, ORCID, keywords, section numbering |
-| [quarto/kennsluakademia.lua](quarto/kennsluakademia.lua) | The `.ka-callout` box in both formats |
+| [kennsluakademia_conf.cls](template/latex/kennsluakademia_conf.cls) | PDF look: layout, header with logo, fonts, colours, section style |
+| [template/quarto/kennsluakademia-template.tex](template/quarto/kennsluakademia-template.tex) | How the front matter is turned into `article.tex` |
+| [template/quarto/logo-short.svg](template/quarto/logo-short.svg), [template/quarto/logo-long.svg](template/quarto/logo-long.svg), [template/quarto/favicon.svg](template/quarto/favicon.svg), [kennsluakademia.pdf](kennsluakademia.pdf) | The logo as SVG for the web (and favicon). `kennsluakademia.pdf` is the same logo as a vector PDF for LaTeX; remake it from the SVG with `inkscape template/quarto/logo-short.svg --export-type=pdf --export-filename=kennsluakademia.pdf` |
+| [template/quarto/title-block.html](template/quarto/title-block.html), [template/quarto/kennsluakademia.css](template/quarto/kennsluakademia.css) | Web look: pinned logo, conference line and title; authors, ORCID, keywords, section numbering |
+| [template/quarto/kennsluakademia.lua](template/quarto/kennsluakademia.lua) | The `.ka-callout` box in both formats |
 | `_extensions/hi-idn/haskoli-islands/` | Base HÍ web theme (Jost font, colours, table of contents) |
 | [.github/workflows/publish.yml](.github/workflows/publish.yml) | Build and publish to GitHub Pages |
 
 ## Placeholders and extras
-- The header line takes `conference`, `address` and `date` from the front matter. Replace `<háskólabygging>` and the date with your own.
+- The header line takes `conference`, `address` and `conference-date` from the front matter. Type the venue and the date by hand, e.g. `address: Saga, Háskóli Íslands` and `conference-date: 20. nóvember 2026`; the placeholders `<háskólabygging>` and `<dags>` show where.
 - The commented block after the front matter is an optional note for the top of the web page (venue, session, links to the published paper and slides). The `other-links` in the front matter fill "Tengt efni" in the sidebar; replace the placeholder links.
 - The "Tilvitnun" section at the end shows how to cite the paper, with a BibTeX entry. Replace the placeholders there too.
 - Slides: the [quarto-hi](https://github.com/tungufoss/quarto-hi) template gives you RevealJS slides in the HÍ look that match this page. Link them from `other-links` as `slides/`.
@@ -81,7 +89,7 @@ References are formatted with plainnat in the PDF and with APA ([quarto/apa.csl]
 The class also works on its own in any LaTeX document; `article.tex` is a complete example.
 
 ```latex
-\documentclass{kennsluakademia_conf}
+\documentclass{template/latex/kennsluakademia_conf}
 
 \title{Titill greinar}
 \author{%

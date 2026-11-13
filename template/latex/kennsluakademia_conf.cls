@@ -34,7 +34,7 @@
 
 % Import necessary packages and set up geometry for the document
 \RequirePackage[a4paper, left=1.5cm, right=1.5cm, top=4.5cm, bottom=3cm, columnsep=0.4in, headheight=3cm, headsep=.5cm]{geometry}
-\RequirePackage{helvet, amsmath, bm, graphicx, tikz, titlesec, fancyhdr, hyperref, natbib}
+\RequirePackage{helvet, amsmath, bm, graphicx, svg, tikz, titlesec, fancyhdr, hyperref, natbib}
 \RequirePackage{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[icelandic]{babel}
@@ -128,7 +128,7 @@
 % Left header with logo and customizable conference information
 \fancyhead[L]{%
   \begin{minipage}{55mm}
-    \includegraphics[width=\linewidth]{kennsluakademia} % kennsluakademia.pdf, made from quarto/logo-short.svg
+    \includesvg[width=\linewidth]{template/quarto/logo-short} % SVG logo (needs Inkscape and --shell-escape)
   \end{minipage}%
   
   \vskip 6pt

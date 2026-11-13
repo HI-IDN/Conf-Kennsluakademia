@@ -1,4 +1,4 @@
--- File: quarto/kennsluakademia.lua
+-- File: template/quarto/kennsluakademia.lua
 -- Sets `numbered-affiliations` when there is more than one affiliation, so the
 -- templates only print affiliation numbers when they are needed.
 -- ::: {.ka-callout title="..."} becomes \callout{title}{body} in LaTeX (see the class),

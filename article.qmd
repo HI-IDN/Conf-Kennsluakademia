@@ -5,8 +5,7 @@
 title: Titill
 conference: Ráðstefna Kennsluakademíu opinberu háskólanna
 address: '\<háskólabygging\>'
-date: 2026-11-20                  # dagsetning ráðstefnunnar
-date-format: "D MMMM, YYYY"
+conference-date: '\<dags\>'     # skrifaðu dagsetningu ráðstefnunnar handvirkt, t.d. 20. nóvember 2026
 lang: is
 keywords:
   - Lykilorð 1
@@ -37,29 +36,30 @@ bibliography: references.bib
 nocite: |
   @*
 filters:
-  - quarto/kennsluakademia.lua
+  - template/quarto/kennsluakademia.lua
 format:
   pdf:
-    template: quarto/kennsluakademia-template.tex
+    template: template/quarto/kennsluakademia-template.tex
     keep-tex: true
     pdf-engine: pdflatex
+    pdf-engine-opt: --shell-escape
     cite-method: natbib
     biblio-style: plainnat
   haskoli-islands-html:
     lang: is
     toc-title: Efnisyfirlit
-    csl: quarto/apa.csl
+    csl: template/quarto/apa.csl
     link-citations: true
     reference-section-title: Tilvísanir
     language:
       related-formats-title: Sækja erindið
       other-links-title: Tengt efni
-    css: quarto/kennsluakademia.css
+    css: template/quarto/kennsluakademia.css
     template-partials:
-      - quarto/title-block.html
+      - template/quarto/title-block.html
     include-in-header:
       - text: |
-          <link rel="icon" type="image/svg+xml" href="quarto/favicon.svg">
+          <link rel="icon" type="image/svg+xml" href="template/quarto/favicon.svg">
     other-links:
       - text: Glærur
         icon: easel

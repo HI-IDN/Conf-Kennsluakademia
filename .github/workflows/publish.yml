@@ -29,14 +29,17 @@ jobs:
         with:
           tinytex: true
 
+      - name: Install Inkscape (SVG logo in the PDF)
+        run: sudo apt-get update && sudo apt-get install -y inkscape
+
       - name: Render PDF and HTML
         run: quarto render article.qmd
 
       - name: Collect site
         run: |
-          mkdir -p _site/quarto
+          mkdir -p _site/template/quarto
           cp -r article.html article_files article.pdf _site/
-          cp quarto/kennsluakademia.css quarto/logo-short.svg quarto/favicon.svg _site/quarto/
+          cp template/quarto/kennsluakademia.css template/quarto/logo-short.svg template/quarto/favicon.svg _site/template/quarto/
           cp article.html _site/index.html
 
       - name: Upload Pages artifact

@@ -1,4 +1,4 @@
-/* File: quarto/kennsluakademia.css
+/* File: template/quarto/kennsluakademia.css
    Web version of kennsluakademia_conf.cls, layered on the HÍ theme (haskoli-islands-html). */
 
 :root {
@@ -7,12 +7,12 @@
   --ka-lime: #A6CE39;
 }
 
-/* Links in the HÍ style blue (same as the slides) */
+/* Links in the Kennsluakademía colours (dark blue, teal underline) */
 #quarto-document-content a,
 #quarto-appendix a,
 #quarto-margin-sidebar a,
 .quarto-title-meta a {
-  color: #10099F;
+  color: var(--ka-darkblue);
   text-decoration-color: var(--ka-lightblue);
   text-underline-offset: 2px;
 }
@@ -137,9 +137,9 @@
 }
 /* Web look: pale tint, accent bar, quotes as plain emphasised lines */
 .ka-callout {
-  background: rgba(45, 210, 192, .14);
+  background: rgba(131, 189, 186, .2);
   border: 0;
-  border-left: 6px solid #2DD2C0;
+  border-left: 6px solid var(--ka-lightblue);
 }
 .ka-callout blockquote {
   border-left: 0;
@@ -177,4 +177,44 @@
   border-left: 4px solid var(--ka-lightblue);
   padding: .75rem 1rem;
   white-space: pre-wrap;
+}
+
+/* The base HÍ theme is blue (#10099F) and turquoise (#2DD2C0); this page uses the
+   Kennsluakademía palette from the logo instead: dark blue and teal. */
+:root {
+  --hi-blue: var(--ka-darkblue);
+  --hi-dark-blue: var(--ka-darkblue);
+  --hi-turquoise: var(--ka-lightblue);
+  --bs-link-color: #1C3E64;
+  --bs-link-color-rgb: 28, 62, 100;
+  --bs-link-hover-color: #1C3E64;
+  --bs-link-hover-color-rgb: 28, 62, 100;
+}
+a:hover {
+  text-decoration-color: var(--ka-lightblue);
+  text-decoration-thickness: 2px;
+}
+.sidebar nav[role="doc-toc"] ul > li > a.active,
+.sidebar nav[role="doc-toc"] ul > li > ul > li > a.active {
+  color: var(--ka-darkblue);
+  border-left-color: var(--ka-lightblue);
+}
+code {
+  color: var(--ka-darkblue);
+}
+blockquote {
+  border-left-color: var(--ka-lightblue);
+}
+h1.title {
+  border-bottom-color: var(--ka-lightblue) !important;
+}
+nav[role="doc-toc"] a.nav-link.active,
+nav[role="doc-toc"] a.nav-link:hover {
+  color: var(--ka-darkblue) !important;
+  border-left-color: var(--ka-lightblue) !important;
+}
+#TOC a.nav-link.active,
+.sidebar a.nav-link.active {
+  color: var(--ka-darkblue) !important;
+  border-left-color: var(--ka-lightblue) !important;
 }
