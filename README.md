@@ -15,6 +15,9 @@ article.qmd  ──quarto render──►  article.tex  ──pdflatex──► 
 
 > **Edit `article.qmd`, not `article.tex`.** Every render overwrites `article.tex`. The generated `article.tex` still compiles on its own with pdflatex + bibtex if you need to send the plain LaTeX version.
 
+## LaTeX only
+The plain LaTeX version of this template (no Quarto) is also available as an [Overleaf template](https://www.overleaf.com/latex/templates/radstefna-kennsluakademiu-opinberu-haskolanna/jkkpnbtxyfzv), and as the [`latex-v1` release](https://github.com/HI-IDN/Conf-Kennsluakademia/releases/tag/latex-v1) of this repository. The class [`kennsluakademia_conf.cls`](template/latex/kennsluakademia_conf.cls) gives a two-column layout with conference information, author affiliations with ORCID, and keywords.
+
 ## Quick Start
 1. Install [Quarto](https://quarto.org/docs/get-started/) and a LaTeX distribution (`quarto install tinytex` is enough).
 2. Edit the front matter and text in [article.qmd](article.qmd).
